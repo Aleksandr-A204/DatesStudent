@@ -5,7 +5,6 @@ namespace WorkWithFilesInfo
 {
     public class WorkWithFilesAndSerialization
     {
-
         // относительный путь к файлу
         private static string path = Path.Combine(Directory.GetCurrentDirectory(), "example1Json.json");
 

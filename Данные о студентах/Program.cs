@@ -7,7 +7,6 @@ namespace StudentData
     {
         static void Main(string[] args)
         {
-
             do
             {
                 Console.WriteLine("1. Получить полный список студентов.");

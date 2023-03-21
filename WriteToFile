@@ -1,0 +1,30 @@
+            //List<Curriculum> objectCurriculm = new List<Curriculum>
+            //{
+            //    new Curriculum("example1Faculty", "example1Speciality", "example1Cource", "example1Group"),
+            //    new Curriculum("example2Faculty", "example2Speciality", "example2Cource", "example2Group"),
+            //    new Curriculum("example3Faculty", "example3Speciality", "example3Cource", "example3Group"),
+            //    new Curriculum("example4Faculty", "example4Speciality", "example4Cource", "example4Group"),
+            //};
+            //List<Address> objectAddress = new List<Address>
+            //{
+            //    new Address("example1City", "example1PostIndex", "example1Street"),
+            //    new Address("example2City", "example2PostIndex", "example2Street"),
+            //    new Address("example3City", "example3PostIndex", "example3Street"),
+            //    new Address("", "", ""),
+            //};
+            //List<Contacts> objectContacts = new List<Contacts>
+            //{
+            //    new Contacts("example1Phone", "example1Email"),
+            //    new Contacts("example2Phone", "example2Email"),
+            //    new Contacts("example3Phone", "example3Email"),
+            //    new Contacts("example4Phone", "example4Email"),
+            //};
+            //List<Student> objectStudent = new List<Student>
+            //{
+            //    new Student("example1FIO", objectCurriculm[0], objectAddress[0], objectContacts[0]),
+            //    new Student("example2FIO", objectCurriculm[1], objectAddress[1], objectContacts[1]),
+            //    new Student("example3FIO", objectCurriculm[2], objectAddress[2], objectContacts[2]),
+            //    new Student("example4FIO", objectCurriculm[3], objectAddress[3], objectContacts[3]),
+            //};
+
+            //WorkWithFilesAndSerialization.WriteToFile(objectStudent);

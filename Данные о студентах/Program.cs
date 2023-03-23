@@ -7,6 +7,10 @@ namespace StudentData
     {
         static void Main(string[] args)
         {
+            Console.WindowHeight = 50;
+            Console.WindowWidth = 210;
+            Console.Title = "Данные о студентах";
+
             do
             {
                 Console.WriteLine("1. Получить полный список студентов.");

@@ -1,0 +1,26 @@
+﻿<Window x:Class="InfoStudents.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InfoStudents"
+        mc:Ignorable="d"
+        Title="Info about students" Height="400" Width="600">
+    <Grid>
+        <Button Height="40" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="90,0,90,200" Click="GetListStud_Click">
+            Получить полный список студентов.
+        </Button>
+        <Button Height="40" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="90,0,90,100">
+            Добавить/удалить студента.
+        </Button>
+        <Button Height="40" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="90,0,90,0">
+            Отображать/отредактировать карточки студента
+        </Button>
+        <Button Height="40" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="90,100,90,0">
+            Просмотривать список студентов с фильтрацией по любому полю.
+        </Button>
+        <Button x:Name="exitingProgram" Height="40" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="90,200,90,0" Click="EscClick">
+            Выходить из программы.
+        </Button>
+    </Grid>
+</Window>

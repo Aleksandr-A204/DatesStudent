@@ -1,0 +1,56 @@
+﻿<Window x:Class="InfoStudentsWPF.AddDelStudent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InfoStudentsWPF"
+        mc:Ignorable="d"
+        Title="ListInfoStud" Height="600" Width="1400" Background="#FF9797FD" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <GridView x:Key="listView">
+            <GridViewColumn DisplayMemberBinding="{Binding Path=FIO}">ФИО</GridViewColumn>
+            <GridViewColumn DisplayMemberBinding="{Binding Path=Curriculum.Faculty}"  >Факультет</GridViewColumn>
+            <GridViewColumn DisplayMemberBinding="{Binding Path=Curriculum.Speciality}"  >Специальность</GridViewColumn>
+            <GridViewColumn DisplayMemberBinding="{Binding Path=Curriculum.Cource}" >Курс</GridViewColumn>
+            <GridViewColumn DisplayMemberBinding="{Binding Path=Curriculum.Group}"  >Группа</GridViewColumn>
+            <GridViewColumn DisplayMemberBinding="{Binding Path=Address.City}" >Город</GridViewColumn>
+            <GridViewColumn DisplayMemberBinding="{Binding Path=Address.PostIndex}" >Почтовый индекс</GridViewColumn>
+            <GridViewColumn DisplayMemberBinding="{Binding Path=Address.Street}" >Улица</GridViewColumn>
+            <GridViewColumn DisplayMemberBinding="{Binding Path=Contact.Phone}" >Телефон</GridViewColumn>
+            <GridViewColumn DisplayMemberBinding="{Binding Path=Contact.Email}" >Эл. почта</GridViewColumn>
+        </GridView>
+
+        <Style TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Background" Value="Gray" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Margin" Value="15" />
+                <Setter Property="Height" Value="40" />
+                <Setter Property="Width" Value="180" />
+            </Style.Setters>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FF9797FD">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="White" Margin="5" CornerRadius="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <ListView BorderBrush="LightGray" x:Name="userList" Margin="10" View="{StaticResource listView}" FontSize="14"/>
+        </Border>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1">
+            <Button Content="Назад" Margin="0 0 785 0" Click="Button_ClickBack"/>
+            <Button Content="Добавить студента" Click="Button_ClickAddStud" />
+            <Button Content="Удалить студента" Click="Button_ClickDelStud" />
+        </StackPanel>
+    </Grid>
+
+</Window> 

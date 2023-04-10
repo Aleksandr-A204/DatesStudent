@@ -88,8 +88,8 @@ namespace StudentData
                 maxWidthCity = listStudents?.Select(stud => stud.Address.City.Length).Max() > maxWidthCity ? listStudents!.Select(stud => stud.Address.City.Length).Max() : maxWidthCity;
                 maxWidthPostIndex = listStudents?.Select(stud => stud.Address.PostIndex.Length).Max() > maxWidthPostIndex ? listStudents!.Select(stud => stud.Address.PostIndex.Length).Max() : maxWidthPostIndex;
                 maxWidthStreet = listStudents?.Select(stud => stud.Address.Street.Length).Max() > maxWidthStreet ? listStudents!.Select(stud => stud.Address.Street.Length).Max() : maxWidthStreet;
-                maxWidthPhone = listStudents?.Select(stud => stud.Contacts.Phone.Length).Max() > maxWidthPhone ? listStudents!.Select(stud => stud.Contacts.Phone.Length).Max() : maxWidthPhone;
-                maxWidthEmail = listStudents?.Select(stud => stud.Contacts.Email.Length).Max() > maxWidthEmail ? listStudents!.Select(stud => stud.Contacts.Email.Length).Max() : maxWidthEmail;
+                maxWidthPhone = listStudents?.Select(stud => stud.Contact.Phone.Length).Max() > maxWidthPhone ? listStudents!.Select(stud => stud.Contact.Phone.Length).Max() : maxWidthPhone;
+                maxWidthEmail = listStudents?.Select(stud => stud.Contact.Email.Length).Max() > maxWidthEmail ? listStudents!.Select(stud => stud.Contact.Email.Length).Max() : maxWidthEmail;
 
                 var formatTablDisj = string.Format("| {{0, -{0}}} | {{1, -{1}}} | {{2, -{2}}} | {{3, -{3}}} | {{4, -{4}}} | {{5, -{5}}} | {{6, -{6}}} | {{7, -{7}}} | {{8, -{8}}} | {{9, -{9}}} | {{10, -{10}}} |",
                     maxWidthNumber, maxWidthFIO, maxWidthFaculty, maxWidthSpeciality, maxWidthCource, maxWidthGroup, maxWidthCity, maxWidthPostIndex, maxWidthStreet, maxWidthPhone, maxWidthEmail);
@@ -102,8 +102,8 @@ namespace StudentData
                 int i = 1;
                 foreach (var student in listStudents!)
                     Console.WriteLine(formatTablDisj, i++, student.FIO, student.Curriculum.Faculty, student.Curriculum.Speciality, student.Curriculum.Cource,
-                        student.Curriculum.Group, student.Address.City, student.Address.PostIndex, student.Address.Street, student.Contacts.Phone,
-                        student.Contacts.Email);
+                        student.Curriculum.Group, student.Address.City, student.Address.PostIndex, student.Address.Street, student.Contact.Phone,
+                        student.Contact.Email);
 
                 Console.WriteLine(formatTablInter, formatTabl(maxWidthNumber), formatTabl(maxWidthFIO), formatTabl(maxWidthFaculty), formatTabl(maxWidthSpeciality), formatTabl(maxWidthCource),
                                 formatTabl(maxWidthGroup), formatTabl(maxWidthCity), formatTabl(maxWidthPostIndex), formatTabl(maxWidthStreet), formatTabl(maxWidthPhone), formatTabl(maxWidthEmail));
@@ -249,13 +249,13 @@ namespace StudentData
                         break;
                     case "9":
                         Console.Write("Измените номер телефона: ");
-                        listStudents[number].Contacts.Phone = Console.ReadLine() ?? "";
+                        listStudents[number].Contact.Phone = Console.ReadLine() ?? "";
                         Console.Clear();
                         Console.WriteLine("Телефон успешно был изменен.");
                         break;
                     case "10":
                         Console.Write("Измените адрес электронной почты: ");
-                        listStudents[number].Contacts.Email = Console.ReadLine() ?? "";
+                        listStudents[number].Contact.Email = Console.ReadLine() ?? "";
                         Console.Clear();
                         Console.WriteLine("Адрес электронной почты успешно был изменен.");
                         break;
@@ -302,8 +302,8 @@ namespace StudentData
             || student.Curriculum.Faculty.Contains(scanfString!, StringComparison.OrdinalIgnoreCase) || student.Curriculum.Speciality.Contains(scanfString!, StringComparison.OrdinalIgnoreCase)
             || student.Curriculum.Cource.Contains(scanfString!, StringComparison.OrdinalIgnoreCase) || student.Curriculum.Group.Contains(scanfString!, StringComparison.OrdinalIgnoreCase)
             || student.Address.City.Contains(scanfString!, StringComparison.OrdinalIgnoreCase) || student.Address.PostIndex.Contains(scanfString!, StringComparison.OrdinalIgnoreCase)
-            || student.Address.Street.Contains(scanfString!, StringComparison.OrdinalIgnoreCase) || student.Contacts.Phone.Contains(scanfString!, StringComparison.OrdinalIgnoreCase)
-            || student.Contacts.Email.Contains(scanfString!, StringComparison.OrdinalIgnoreCase))!);
+            || student.Address.Street.Contains(scanfString!, StringComparison.OrdinalIgnoreCase) || student.Contact.Phone.Contains(scanfString!, StringComparison.OrdinalIgnoreCase)
+            || student.Contact.Email.Contains(scanfString!, StringComparison.OrdinalIgnoreCase))!);
 
             Console.Clear();
 
@@ -348,7 +348,7 @@ namespace StudentData
                         var scanfEmail = Console.ReadLine() ?? "";
 
                         listStudents.Add(new Student(scanfFIO, new Curriculum(scanfFacult, scanfSpecial, scanfCource, scanfGroup), new Address(scanfCity, scanfIndex, scanfStreet), 
-                            new Contacts(scanfPhone, scanfEmail)));
+                            new Contact(scanfPhone, scanfEmail)));
                         WorkWithFilesAndSerialization.WriteToFile(listStudents);
                         Console.WriteLine("Студент успешно добавлен в конец списка.");
                         return;

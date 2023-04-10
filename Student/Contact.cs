@@ -1,10 +1,10 @@
 ﻿namespace StudentInfo
 {
-    public class Contacts
+    public class Contact
     {
         public string Phone { get; set; }
         public string Email { get; set; }
-        public Contacts(string phone, string email)
+        public Contact(string phone, string email)
         {
             Phone = phone;
             Email = email;

@@ -13,6 +13,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkWithFilesInfo", "WorkWithFilesInfo\WorkWithFilesInfo.csproj", "{C932C538-B351-449C-8AD6-E64DF6D8B656}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoStudentsWPF", "InfoStudents\InfoStudentsWPF.csproj", "{248F2729-CDCA-4CD7-AE41-E5E736F6BC0B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{674EAAD0-728B-4399-85B8-5B3EB0ADB418} = {674EAAD0-728B-4399-85B8-5B3EB0ADB418}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

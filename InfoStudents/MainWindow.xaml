@@ -4,23 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InfoStudents"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Info about students" Height="400" Width="600">
-    <Grid>
-        <Button Height="40" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="90,0,90,200" Click="GetListStud_Click">
+        Title="Приложение для данных о студентах" MinHeight="350" MinWidth="600" Height="350" Width="600" Background="#FF9797FD" FontWeight="Bold" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" >
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Background" Value="Gray" />
+                <Setter Property="Foreground" Value="White" />
+            </Style.Setters>
+        </Style>
+    </Window.Resources>
+    
+    <StackPanel>
+        <Button MinHeight="40" Margin="90 40 90 0" HorizontalAlignment="Stretch" Click="GetListStud_Click">
             Получить полный список студентов.
         </Button>
-        <Button Height="40" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="90,0,90,100">
+        <Button MinHeight="40" Margin="90 10 90 0" HorizontalAlignment="Stretch" Click="AddDelStud_Click">
             Добавить/удалить студента.
         </Button>
-        <Button Height="40" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="90,0,90,0">
-            Отображать/отредактировать карточки студента
+        <Button MinHeight="40" Margin="90 10 90 0" HorizontalAlignment="Stretch" Click="EditStud_Click">
+            Отображать/отредактировать карточки студента.
         </Button>
-        <Button Height="40" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="90,100,90,0">
+        <Button MinHeight="40" Margin="90 10 90 0" HorizontalAlignment="Stretch" Click="FilteringBy_Click">
             Просмотривать список студентов с фильтрацией по любому полю.
         </Button>
-        <Button x:Name="exitingProgram" Height="40" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="90,200,90,0" Click="EscClick">
+        <Button x:Name="exitingProgram" MinHeight="40" Margin="90 10 90 0" HorizontalAlignment="Stretch" Click="EscClick">
             Выходить из программы.
         </Button>
-    </Grid>
+    </StackPanel>
 </Window>

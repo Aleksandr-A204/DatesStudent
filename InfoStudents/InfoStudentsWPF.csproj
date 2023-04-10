@@ -7,4 +7,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Student\Student.csproj" />
+    <ProjectReference Include="..\WorkWithFilesInfo\WorkWithFilesInfo.csproj" />
+    <ProjectReference Include="..\Данные о студентах\Данные о студентах.csproj" />
+  </ItemGroup>
+
 </Project>

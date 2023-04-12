@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,12 +22,13 @@ namespace InfoStudentsWPF
     /// </summary>
     public partial class EditStudent : Window
     {
-        List<Student> listStudents = WorkWithFilesAndSerialization.ReadFromFile();
+        List<Student> listStudents = new List<Student>();
         public EditStudent()
         {
             InitializeComponent();
 
-            userList.ItemsSource = listStudents;
+            listStudents = WorkWithFilesAndSerialization.ReadFromFile();
+            listView_DataStuds.ItemsSource = listStudents;
         }
         private void Button_ClickBack(object sender, RoutedEventArgs e)
         {
@@ -34,13 +36,21 @@ namespace InfoStudentsWPF
         }
         private void Button_ClickEdit(object sender, RoutedEventArgs e) 
         {
+            Student? selectedStudent = listView_DataStuds.SelectedItem as Student;
+            if (selectedStudent is null) 
+                return;
 
-            Close();
-        }
+            EditAddStud getEditStudent = new EditAddStud(selectedStudent);
 
-        private void ListStudents_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+            if (getEditStudent.ShowDialog() == true)
+            {
+                listStudents.Insert(listStudents.IndexOf(selectedStudent), getEditStudent.NewStudent);
+                listStudents.Remove(selectedStudent);
+                WorkWithFilesAndSerialization.WriteToFile(listStudents);
 
+                listStudents = WorkWithFilesAndSerialization.ReadFromFile();
+                listView_DataStuds.ItemsSource = listStudents;
+            }
         }
     }
 }

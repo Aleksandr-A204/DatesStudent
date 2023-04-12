@@ -280,7 +280,7 @@ namespace StudentData
             Console.WriteLine("0) Выход");
         }
 
-        // Метод формы просмотра списка студентов с возможностью фильтрации по факультету, специальности, курсу, группе
+        // Метод формы просмотра списка студентов с возможностью фильтрации по любому полю
         static void WatchListStudentsWithFilter()
         {
             List<Student> listStudents = WorkWithFilesAndSerialization.ReadFromFile();

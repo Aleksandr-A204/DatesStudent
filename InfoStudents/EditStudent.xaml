@@ -48,7 +48,7 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
-            <ListView BorderBrush="LightGray" x:Name="userList" Margin="10" View="{DynamicResource listView}" FontSize="14" SelectionChanged="ListStudents_SelectionChanged"/>
+            <ListView BorderBrush="LightGray" x:Name="listView_DataStuds" Margin="10" View="{StaticResource listView}" FontSize="14"/>
         </Border>
 
         <Button Content="Вернуться в главное меню" Click="Button_ClickBack" Grid.Column="0"/>

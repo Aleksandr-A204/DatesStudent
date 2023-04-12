@@ -1,11 +1,11 @@
-﻿<Window x:Class="InfoStudentsWPF.AddStud"
+﻿<Window x:Class="InfoStudentsWPF.EditAddStud"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InfoStudentsWPF"
         mc:Ignorable="d"
-        Title="Добавление студента" Height="400" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowState="Normal">
+        Height="400" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowState="Normal">
 
     <Window.Resources>
         <Style TargetType="Button">

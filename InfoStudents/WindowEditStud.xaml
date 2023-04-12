@@ -1,0 +1,96 @@
+﻿<Window x:Class="InfoStudentsWPF.WindowEditStud"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InfoStudentsWPF"
+        mc:Ignorable="d"
+        Title="Изменение студента" Height="400" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowState="Normal">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Background" Value="Gray" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="10 5 10 5"/>
+            <Setter Property="Width" Value="260"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid Background="#FF9797FD">
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Right" >
+            <TextBlock Text="Введите ФИО:" VerticalAlignment="Center" />
+            <TextBox x:Name="fioTextBox" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right">
+            <TextBlock Text="Введите факультет:" VerticalAlignment="Center"/>
+            <TextBox x:Name="facultyTextBox" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
+            <TextBlock Text="Введите специальность:" VerticalAlignment="Center"/>
+            <TextBox x:Name="specialityTextBox"  />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Right">
+            <TextBlock Text="Введите курс:" VerticalAlignment="Center" />
+            <TextBox x:Name="courceTextBox" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Right">
+            <TextBlock Text="Введите группу:" VerticalAlignment="Center" />
+            <TextBox x:Name="groupTextBox" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Right">
+            <TextBlock Text="Введите город:" VerticalAlignment="Center" />
+            <TextBox x:Name="cityTextBox" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="6" HorizontalAlignment="Right">
+            <TextBlock Text="Введите почтовый индекс:" VerticalAlignment="Center" />
+            <TextBox x:Name="postcodeTextBox"  />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="7" HorizontalAlignment="Right">
+            <TextBlock Text="Введите улицу:" VerticalAlignment="Center" />
+            <TextBox x:Name="streetTextBox" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="8" HorizontalAlignment="Right">
+            <TextBlock Text="Введите телефон:" VerticalAlignment="Center" />
+            <TextBox x:Name="phoneTextBox" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="9" HorizontalAlignment="Right">
+            <TextBlock Text="Введите эл. почту:" VerticalAlignment="Center" />
+            <TextBox x:Name="emailTextBox" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="10" HorizontalAlignment="Center">
+            <Button IsDefault="True" Content="Сохранить" Click="Button_ClickSave" />
+            <Button IsCancel="True" Content="Отменить" Click="Button_ClickCancel" />
+        </StackPanel>
+    </Grid>
+</Window>

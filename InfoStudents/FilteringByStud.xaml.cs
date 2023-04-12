@@ -21,11 +21,13 @@ namespace InfoStudentsWPF
     /// </summary>
     public partial class FilteringByStud : Window
     {
+        List<Student> listStudents = new List<Student>();
         public FilteringByStud()
         {
             InitializeComponent();
 
-            userList.ItemsSource = WorkWithFilesAndSerialization.ReadFromFile();
+            listStudents = WorkWithFilesAndSerialization.ReadFromFile();
+            userList.ItemsSource = listStudents;
         }
         private void Button_ClickBack(object sender, RoutedEventArgs e)
         {
@@ -33,12 +35,21 @@ namespace InfoStudentsWPF
         }
         private void Button_ClickFiltr(object sender, RoutedEventArgs e)
         {
+            string filter = textBoxFiltr.Text;
 
-        }
+            if (filter == "" || filter == null)
+                return;
 
-        private void ListStudents_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            MessageBox.Show(e.ToString());
+            List<Student> listFilteringBy = new List<Student>();
+
+            listFilteringBy.AddRange(listStudents.Where(student => student.FIO.Contains(filter!, StringComparison.OrdinalIgnoreCase)
+            || student.Curriculum.Faculty.Contains(filter!, StringComparison.OrdinalIgnoreCase) || student.Curriculum.Speciality.Contains(filter!, StringComparison.OrdinalIgnoreCase)
+            || student.Curriculum.Cource.Contains(filter!, StringComparison.OrdinalIgnoreCase) || student.Curriculum.Group.Contains(filter!, StringComparison.OrdinalIgnoreCase)
+            || student.Address.City.Contains(filter!, StringComparison.OrdinalIgnoreCase) || student.Address.PostIndex.Contains(filter!, StringComparison.OrdinalIgnoreCase)
+            || student.Address.Street.Contains(filter!, StringComparison.OrdinalIgnoreCase) || student.Contact.Phone.Contains(filter!, StringComparison.OrdinalIgnoreCase)
+            || student.Contact.Email.Contains(filter!, StringComparison.OrdinalIgnoreCase))!);
+
+            userList.ItemsSource = listFilteringBy;
         }
     }
 }

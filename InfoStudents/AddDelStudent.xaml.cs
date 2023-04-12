@@ -42,7 +42,7 @@ namespace InfoStudentsWPF
 
         private void Button_ClickAddStud(object sender, RoutedEventArgs e)
         {
-            AddStud newStudent = new AddStud(new Student("", new Curriculum("", "", "", ""), new Address("","",""), new Contact("","")));
+            EditAddStud newStudent = new EditAddStud(new Student("", new Curriculum("", "", "", ""), new Address("","",""), new Contact("","")));
 
             if (newStudent.ShowDialog() == true)
             {

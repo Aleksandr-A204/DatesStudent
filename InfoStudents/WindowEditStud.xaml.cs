@@ -1,33 +1,49 @@
-﻿using StudentInfo;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
-using WorkWithFilesInfo;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using StudentInfo;
 
 namespace InfoStudentsWPF
 {
-    public partial class AddStud : Window
+    /// <summary>
+    /// Логика взаимодействия для EditStud.xaml
+    /// </summary>
+    /// 
+    public partial class WindowEditStud : Window
     {
-        public Student NewStudent { get; private set; }
+        public Student EditDataStudent { get; private set; }
 
-        public AddStud(Student newStudent)
+        public WindowEditStud(Student editStudent)
         {
             InitializeComponent();
 
-            NewStudent = newStudent;
-        }
+            EditDataStudent = editStudent;
 
-        private void Button_ClickCancel(object sender, RoutedEventArgs e)
+            fioTextBox.Text = editStudent.FIO;
+            facultyTextBox.Text = editStudent.Curriculum.Faculty;
+            specialityTextBox.Text = editStudent.Curriculum.Speciality;
+            courceTextBox.Text = editStudent.Curriculum.Cource;
+            groupTextBox.Text = editStudent.Curriculum.Group;
+            cityTextBox.Text = editStudent.Address.City;
+            postcodeTextBox.Text = editStudent.Address.PostIndex;
+            streetTextBox.Text = editStudent.Address.Street;
+            phoneTextBox.Text = editStudent.Contact.Phone;
+            emailTextBox.Text = editStudent.Contact.Email;
+        }
+        private void Button_ClickCancel(object sender, RoutedEventArgs e )
         {
             Close();
         }
-
-        //void Button_ClickSave(object sender, RoutedEventArgs e)
-        //{
-        //    DialogResult = true;
-        //}
-
 
         int numClick = 0;
 
@@ -118,7 +134,7 @@ namespace InfoStudentsWPF
             {
                 ClearBackgroundAndToolTip(listTextBox);
 
-                NewStudent = new Student(fio, new Curriculum(faculty, speciality, cource, group), new Address(city, postCode, street), new Contact(phone, eMail));
+                EditDataStudent = new Student(fio, new Curriculum(faculty, speciality, cource, group), new Address(city, postCode, street), new Contact(phone, eMail));
 
                 DialogResult = true;
 
@@ -130,13 +146,12 @@ namespace InfoStudentsWPF
             if (numClick > 3)
                 MessageBox.Show("Хватить тупить! Введите поля корректно!");
         }
-
         private static void ClearBackgroundAndToolTip(List<TextBox> brush)
         {
             for (int i = 0; i < brush.Count; i++)
             {
                 brush[i].ToolTip = "";
-                brush[i].Background= Brushes.White;
+                brush[i].Background = Brushes.White;
             }
         }
     }

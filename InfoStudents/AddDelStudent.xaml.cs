@@ -21,7 +21,7 @@ namespace InfoStudentsWPF
     /// </summary>
     public partial class AddDelStudent : Window
     {
-        List<Student> getInfoStud = new List<Student>();
+        List<Student> listDataStud = new List<Student>();
         public AddDelStudent()
         {
             InitializeComponent();
@@ -31,8 +31,8 @@ namespace InfoStudentsWPF
 
         public void ReadDataStud()
         {
-            getInfoStud = WorkWithFilesAndSerialization.ReadFromFile();
-            userList.ItemsSource = getInfoStud;
+            listDataStud = WorkWithFilesAndSerialization.ReadFromFile();
+            listView_StudData.ItemsSource = listDataStud;
         }
 
         private void Button_ClickBack(object sender, RoutedEventArgs e)
@@ -42,26 +42,29 @@ namespace InfoStudentsWPF
 
         private void Button_ClickAddStud(object sender, RoutedEventArgs e)
         {
-            AddStud addStud = new AddStud();
-            addStud.Show();
+            AddStud newStudent = new AddStud(new Student("", new Curriculum("", "", "", ""), new Address("","",""), new Contact("","")));
 
-            ReadDataStud();
+            if (newStudent.ShowDialog() == true)
+            {
+                listDataStud.Add(newStudent.NewStudent);
+                WorkWithFilesAndSerialization.WriteToFile(listDataStud);
+
+                ReadDataStud();
+            }
         }
 
         private void Button_ClickDelStud(object sender, RoutedEventArgs e)
         {
-            Student? selectedStudent = userList.SelectedItem as Student;
+            Student? selectedStudent = listView_StudData.SelectedItem as Student;
 
             if (selectedStudent is null)
             {
-                MessageBox.Show("Выбирайте студента!");
+                MessageBox.Show("Выбирайте студента, которого вы хотите удалять!");
                 return;
             }
 
-            getInfoStud.Remove(selectedStudent);
-            WorkWithFilesAndSerialization.WriteToFile(getInfoStud);
-
-            //MessageBox.Show("Студент успешно удален!");
+            listDataStud.Remove(selectedStudent);
+            WorkWithFilesAndSerialization.WriteToFile(listDataStud);
 
             ReadDataStud();
         }

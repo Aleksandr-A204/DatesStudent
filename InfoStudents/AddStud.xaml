@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InfoStudentsWPF"
         mc:Ignorable="d"
-        Title="Добавление студента" Height="400" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+        Title="Добавление студента" Height="400" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowState="Normal">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -89,8 +89,8 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="10" HorizontalAlignment="Center">
-            <Button Content="Сохранить" Click="Button_ClickSave" />
-            <Button Content="Отменить" Click="Button_ClickCancel" />
+            <Button IsDefault="True" Content="Сохранить" Click="Button_ClickSave" />
+            <Button IsCancel="True" Content="Отменить" Click="Button_ClickCancel" />
         </StackPanel>
     </Grid>
 </Window>

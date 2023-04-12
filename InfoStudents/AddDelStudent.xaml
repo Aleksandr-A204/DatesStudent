@@ -50,7 +50,7 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
-            <ListView BorderBrush="LightGray" x:Name="userList" Margin="10" View="{StaticResource listView}" FontSize="14" />
+            <ListView BorderBrush="LightGray" x:Name="listView_StudData" Margin="10" View="{StaticResource listView}" FontSize="14" />
         </Border>
 
         <Button Content="Вернуться в главное меню" Click="Button_ClickBack" Grid.Column="0"/>

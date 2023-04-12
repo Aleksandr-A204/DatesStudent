@@ -13,24 +13,27 @@
             <Style.Setters>
                 <Setter Property="Background" Value="Gray" />
                 <Setter Property="Foreground" Value="White" />
+                <Setter Property="MinHeight" Value="40" />
+                <Setter Property="Margin" Value="90 10 90 0" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
             </Style.Setters>
         </Style>
     </Window.Resources>
     
     <StackPanel>
-        <Button MinHeight="40" Margin="90 40 90 0" HorizontalAlignment="Stretch" Click="GetListStud_Click">
+        <Button Click="GetListStud_Click" Margin="90 40 90 0">
             Получить полный список студентов.
         </Button>
-        <Button MinHeight="40" Margin="90 10 90 0" HorizontalAlignment="Stretch" Click="AddDelStud_Click">
+        <Button Click="AddDelStud_Click">
             Добавить/удалить студента.
         </Button>
-        <Button MinHeight="40" Margin="90 10 90 0" HorizontalAlignment="Stretch" Click="EditStud_Click">
+        <Button Click="EditStud_Click">
             Отображать/отредактировать карточки студента.
         </Button>
-        <Button MinHeight="40" Margin="90 10 90 0" HorizontalAlignment="Stretch" Click="FilteringBy_Click">
+        <Button Click="FilteringBy_Click">
             Просмотривать список студентов с фильтрацией по любому полю.
         </Button>
-        <Button x:Name="exitingProgram" MinHeight="40" Margin="90 10 90 0" HorizontalAlignment="Stretch" Click="EscClick">
+        <Button Click="EscClick" x:Name="exitingProgram" IsCancel="True">
             Выходить из программы.
         </Button>
     </StackPanel>

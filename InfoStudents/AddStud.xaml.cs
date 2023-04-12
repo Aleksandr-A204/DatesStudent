@@ -1,35 +1,33 @@
 ﻿using StudentInfo;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using WorkWithFilesInfo;
 
 namespace InfoStudentsWPF
 {
-    /// <summary>
-    /// Логика взаимодействия для AddStud.xaml
-    /// </summary>
     public partial class AddStud : Window
     {
-        public AddStud()
+        public Student NewStudent { get; private set; }
+
+        public AddStud(Student newStudent)
         {
             InitializeComponent();
+
+            NewStudent = newStudent;
         }
 
         private void Button_ClickCancel(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
+        //void Button_ClickSave(object sender, RoutedEventArgs e)
+        //{
+        //    DialogResult = true;
+        //}
+
 
         int numClick = 0;
 
@@ -120,24 +118,20 @@ namespace InfoStudentsWPF
             {
                 ClearBackgroundAndToolTip(listTextBox);
 
-                List<Student> getInfoStud = WorkWithFilesAndSerialization.ReadFromFile();
-                getInfoStud.Add(new Student(fio, new Curriculum(faculty, speciality, cource, group), new Address(city, postCode, street), new Contact(phone, eMail)));
+                NewStudent = new Student(fio, new Curriculum(faculty, speciality, cource, group), new Address(city, postCode, street), new Contact(phone, eMail));
 
-                WorkWithFilesAndSerialization.WriteToFile(getInfoStud);
-
-                MessageBox.Show("Данные успешно были сохранены!");
+                DialogResult = true;
 
                 Close();
-
-                AddDelStudent addDelStudent = new AddDelStudent();
-                addDelStudent.ReadDataStud();
+                return;
             }
+
             numClick++;
             if (numClick > 3)
                 MessageBox.Show("Хватить тупить! Введите поля корректно!");
         }
 
-        public static void ClearBackgroundAndToolTip(List<TextBox> brush)
+        private static void ClearBackgroundAndToolTip(List<TextBox> brush)
         {
             for (int i = 0; i < brush.Count; i++)
             {

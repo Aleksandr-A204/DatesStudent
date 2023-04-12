@@ -374,7 +374,7 @@ namespace StudentData
 
             int nmr;
 
-            while (!(int.TryParse(Console.ReadLine(), out nmr) && listStudents.Count() >= nmr && 0 < nmr))
+            while (!(int.TryParse(Console.ReadLine(), out nmr) && listStudents.Count >= nmr && 0 < nmr))
             {
                 Console.Clear();
                 Console.WriteLine("Ошибка!");

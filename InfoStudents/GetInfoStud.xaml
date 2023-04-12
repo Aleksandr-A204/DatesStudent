@@ -51,6 +51,10 @@
     </Window.Resources>
 
     <Grid Background="#FF9797FD">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
 
         <Border Background="White" Margin="5" CornerRadius="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Border.Effect>
@@ -61,6 +65,9 @@
 
             <ListView BorderBrush="LightGray" x:Name="userList" Margin="10" View="{StaticResource listView}" FontSize="14"/>
         </Border>
+
+        <Button Content="Вернуться в главное меню" Click="Button_ClickBack" Grid.Row="1" Width="180" Height="40" Margin="15" HorizontalAlignment="Left" Background="Gray" Foreground="White" />
+
     </Grid>
 
 </Window> 

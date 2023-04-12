@@ -40,13 +40,13 @@ namespace InfoStudents
         }
         private void EditStud_Click(object sender, RoutedEventArgs e)
         {
-            GetInfoStud getInfoStud = new GetInfoStud();
-            getInfoStud.Show();
+            EditStudent infoStud = new EditStudent();
+            infoStud.Show();
         }
         private void FilteringBy_Click(object sender, RoutedEventArgs e)
         {
-            GetInfoStud getInfoStud = new GetInfoStud();
-            getInfoStud.Show();
+            FilteringByStud infoStud = new FilteringByStud();
+            infoStud.Show();
         }
     }
 }

@@ -1,10 +1,8 @@
 ﻿using StudentInfo;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,20 +17,28 @@ using WorkWithFilesInfo;
 namespace InfoStudentsWPF
 {
     /// <summary>
-    /// Логика взаимодействия для GetInfoStud.xaml
+    /// Логика взаимодействия для FilteringByStud.xaml
     /// </summary>
-    public partial class GetInfoStud : Window
+    public partial class FilteringByStud : Window
     {
-        public GetInfoStud()
+        public FilteringByStud()
         {
             InitializeComponent();
 
             userList.ItemsSource = WorkWithFilesAndSerialization.ReadFromFile();
         }
-
         private void Button_ClickBack(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+        private void Button_ClickFiltr(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ListStudents_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show(e.ToString());
         }
     }
 }

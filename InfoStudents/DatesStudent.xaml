@@ -1,15 +1,15 @@
-﻿<Window x:Class="InfoStudentsWPF.FilteringByStud"
+﻿<Window x:Class="InfoStudentsWPF.DatesStudent"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InfoStudentsWPF"
         mc:Ignorable="d"
-        Title="EditStud" Height="600" Width="1400" Background="#FF9797FD" WindowStartupLocation="CenterScreen">
+        Title="DatesStudent" Height="600" Width="1400" Background="#FF9797FD" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <GridView x:Key="listView">
-            <GridViewColumn DisplayMemberBinding="{Binding Path=FIO}" >ФИО</GridViewColumn>
+            <GridViewColumn DisplayMemberBinding="{Binding Path=FIO}">ФИО</GridViewColumn>
             <GridViewColumn DisplayMemberBinding="{Binding Path=Curriculum.Faculty}"  >Факультет</GridViewColumn>
             <GridViewColumn DisplayMemberBinding="{Binding Path=Curriculum.Speciality}"  >Специальность</GridViewColumn>
             <GridViewColumn DisplayMemberBinding="{Binding Path=Curriculum.Cource}" >Курс</GridViewColumn>
@@ -25,37 +25,42 @@
             <Style.Setters>
                 <Setter Property="Background" Value="Gray" />
                 <Setter Property="Foreground" Value="White" />
+                <Setter Property="MinHeight" Value="40" />
+                <Setter Property="MinWidth" Value="140" />
                 <Setter Property="Margin" Value="15" />
-                <Setter Property="Height" Value="40" />
-                <Setter Property="Width" Value="180" />
+                <Setter Property="Padding" Value="5 0 5 0" />
                 <Setter Property="Grid.Row" Value="1" />
             </Style.Setters>
         </Style>
     </Window.Resources>
 
     <Grid Background="#FF9797FD">
-
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
 
-        <Border Background="White" Margin="5" CornerRadius="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ColumnSpan="4">
+        <Border Background="White" Margin="5" CornerRadius="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ColumnSpan="5">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
-            <ListView BorderBrush="LightGray" x:Name="userList" Margin="10" View="{StaticResource listView}" FontSize="14" />
+
+            <ListView BorderBrush="LightGray" x:Name="listView_ListStudents" Margin="10" View="{StaticResource listView}" FontSize="14" HorizontalContentAlignment="Stretch"/>
         </Border>
 
-        <Button Content="Вернуться в главное меню" Click="Button_ClickBack" Grid.Column="0"/>
-
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox x:Name="textBoxFiltr" Height="40" Width="400" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown" Foreground="DarkGray" FontSize="14" 
-                     GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" >Фильтровать по любому полю ...</TextBox>
-        </StackPanel>
+        <Button Content="Выйти из приложения" Click="Button_ClickBack" IsCancel="True" Grid.Column="0"/>
+        <TextBox x:Name="textBoxFiltr" Height="40" Width="400" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown" Foreground="DarkGray" FontSize="14" 
+                     GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Margin="15" Grid.Row="1" Grid.Column="1">Фильтровать по любому полю ...</TextBox>
+        <Button x:Name="clickEdit" Content="Изменить данные о студента" Click="Button_ClickEdit" Grid.Column="2"/>
+        <Button Content="Добавить студента" Click="Button_ClickAddStud" Grid.Column="3"/>
+        <Button Content="Удалить студента" Click="Button_ClickDelStud" Grid.Column="4"/>
     </Grid>
-</Window> 
+</Window>

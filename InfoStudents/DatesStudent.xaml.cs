@@ -17,31 +17,33 @@ using WorkWithFilesInfo;
 namespace InfoStudentsWPF
 {
     /// <summary>
-    /// Логика взаимодействия для FilteringByStud.xaml
+    /// Логика взаимодействия для DatesStudent.xaml
     /// </summary>
-    public partial class FilteringByStud : Window
+    public partial class DatesStudent : Window
     {
         List<Student> listStudents = new List<Student>();
-        public FilteringByStud()
+        public DatesStudent()
         {
             InitializeComponent();
 
-            listStudents = WorkWithFilesAndSerialization.ReadFromFile();
-            userList.ItemsSource = listStudents;
+            ReadDataStud();
         }
-
+        public void ReadDataStud()
+        {
+            listStudents = WorkWithFilesAndSerialization.ReadFromFile();
+            listView_ListStudents.ItemsSource = listStudents;
+        }
         private void Button_ClickBack(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
             string filter = textBoxFiltr.Text;
 
             if (textBoxFiltr.Text == "")
             {
-                userList.ItemsSource = listStudents;
+                listView_ListStudents.ItemsSource = listStudents;
                 return;
             }
 
@@ -54,7 +56,7 @@ namespace InfoStudentsWPF
             || student.Address.Street.Contains(filter!, StringComparison.OrdinalIgnoreCase) || student.Contact.Phone.Contains(filter!, StringComparison.OrdinalIgnoreCase)
             || student.Contact.Email.Contains(filter!, StringComparison.OrdinalIgnoreCase))!);
 
-            userList.ItemsSource = listFilteringBy;
+            listView_ListStudents.ItemsSource = listFilteringBy;
         }
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -70,6 +72,56 @@ namespace InfoStudentsWPF
                 textBoxFiltr.Text = "Фильтровать по любому полю ...";
 
             textBoxFiltr.Foreground = Brushes.DarkGray;
+        }
+
+        private void Button_ClickEdit(object sender, RoutedEventArgs e)
+        {
+            Student? selectedStudent = listView_ListStudents.SelectedItem as Student;
+
+            if (selectedStudent is null)
+            {
+                MessageBox.Show("Выберете студента, которого вы хотите изменить.");
+                return;
+            }
+
+            EditAddStud getEditStudent = new EditAddStud(selectedStudent);
+
+            if (getEditStudent.ShowDialog() == true)
+            {
+                listStudents.Insert(listStudents.IndexOf(selectedStudent), getEditStudent.NewStudent);
+                listStudents.Remove(selectedStudent);
+                WorkWithFilesAndSerialization.WriteToFile(listStudents);
+
+                ReadDataStud();
+            }
+        }
+        private void Button_ClickAddStud(object sender, RoutedEventArgs e)
+        {
+            EditAddStud newStudent = new EditAddStud(new Student("", new Curriculum("", "", "", ""), new Address("", "", ""), new Contact("", "")));
+
+            if (newStudent.ShowDialog() == true)
+            {
+                listStudents.Add(newStudent.NewStudent);
+                WorkWithFilesAndSerialization.WriteToFile(listStudents);
+
+                ReadDataStud();
+            }
+        }
+
+        private void Button_ClickDelStud(object sender, RoutedEventArgs e)
+        {
+            Student? selectedStudent = listView_ListStudents.SelectedItem as Student;
+
+            if (selectedStudent is null)
+            {
+                MessageBox.Show("Выберете студента, которого вы хотите удалить.");
+                return;
+            }
+
+            listStudents.Remove(selectedStudent);
+            WorkWithFilesAndSerialization.WriteToFile(listStudents);
+
+            ReadDataStud();
         }
     }
 }

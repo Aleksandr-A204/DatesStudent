@@ -22,8 +22,8 @@ namespace InfoStudentsWPF
         }
         private void Button_ClickWPF(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            DatesStudent datesStudent = new DatesStudent();
+            datesStudent.Show();
             Close();
         }
         private void Button_ClickConsol(object sender, RoutedEventArgs e)

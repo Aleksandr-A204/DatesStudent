@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InfoStudentsWPF"
         mc:Ignorable="d"
-        Height="400" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowState="Normal">
+        Height="400" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowState="Normal" x:Name="windowEditAdd" >
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -19,6 +19,7 @@
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="10 5 10 5"/>
             <Setter Property="Width" Value="260"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
 
     </Window.Resources>
@@ -39,52 +40,52 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Right" >
-            <TextBlock Text="Введите ФИО:" VerticalAlignment="Center" />
+            <TextBlock x:Name="fioTextBlock" Text="Введите ФИО:" VerticalAlignment="Center" />
             <TextBox x:Name="fioTextBox" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right">
-            <TextBlock Text="Введите факультет:" VerticalAlignment="Center"/>
+            <TextBlock x:Name="facultyTextBlock" Text="Введите факультет:" VerticalAlignment="Center"/>
             <TextBox x:Name="facultyTextBox" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
-            <TextBlock Text="Введите специальность:" VerticalAlignment="Center"/>
+            <TextBlock x:Name="specialityTextBlock" Text="Введите специальность:" VerticalAlignment="Center"/>
             <TextBox x:Name="specialityTextBox"  />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Right">
-            <TextBlock Text="Введите курс:" VerticalAlignment="Center" />
+            <TextBlock x:Name="courceTextBlock" Text="Введите курс:" VerticalAlignment="Center" />
             <TextBox x:Name="courceTextBox" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Right">
-            <TextBlock Text="Введите группу:" VerticalAlignment="Center" />
+            <TextBlock x:Name="groupTextBlock" Text="Введите группу:" VerticalAlignment="Center" />
             <TextBox x:Name="groupTextBox" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Right">
-            <TextBlock Text="Введите город:" VerticalAlignment="Center" />
+            <TextBlock x:Name="cityTextBlock" Text="Введите город:" VerticalAlignment="Center" />
             <TextBox x:Name="cityTextBox" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="6" HorizontalAlignment="Right">
-            <TextBlock Text="Введите почтовый индекс:" VerticalAlignment="Center" />
+            <TextBlock x:Name="postcodeTextBlock" Text="Введите почтовый индекс:" VerticalAlignment="Center" />
             <TextBox x:Name="postcodeTextBox"  />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="7" HorizontalAlignment="Right">
-            <TextBlock Text="Введите улицу:" VerticalAlignment="Center" />
+            <TextBlock x:Name="streetTextBlock" Text="Введите улицу:" VerticalAlignment="Center" />
             <TextBox x:Name="streetTextBox" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="8" HorizontalAlignment="Right">
-            <TextBlock Text="Введите телефон:" VerticalAlignment="Center" />
+            <TextBlock x:Name="phoneTextBlock" Text="Введите телефон:" VerticalAlignment="Center" />
             <TextBox x:Name="phoneTextBox" />
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="9" HorizontalAlignment="Right">
-            <TextBlock Text="Введите эл. почту:" VerticalAlignment="Center" />
+            <TextBlock x:Name="emailTextBlock" Text="Введите эл. почту:" VerticalAlignment="Center" />
             <TextBox x:Name="emailTextBox" />
         </StackPanel>
 
